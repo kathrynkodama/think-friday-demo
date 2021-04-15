@@ -8,7 +8,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -38,5 +37,29 @@ public class InventoryResource {
 				+ "; costPerThousandUnits: " + costPerThousandUnits);
 
 		vaccineInventory.addProduct(vaccineType, numDoses, costPerThousandUnits);
+	}
+	
+	// Producer methods 
+	
+	@Produces
+	public Alert firstDose() {
+		return new Alert("Time for your first dose!");
+	}
+	
+	@Produces
+	public Alert secondDose() {
+		return new Alert("Time for your second dose!");
+	}
+	
+	@GET
+	@Path("/firstDose")
+	public String getFirstDoseMsg() {
+		return firstDose().sendAlert();
+	}
+
+	@GET
+	@Path("/secondDose")
+	public String getSecondDoseMsg() {
+		return secondDose().sendAlert();
 	}
 }
