@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import io.openliberty.sample.jakarta.finish.model.Vaccine;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.*;

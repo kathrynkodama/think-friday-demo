@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import io.openliberty.sample.jakarta.finish.model.Alert;
+import io.openliberty.sample.jakarta.finish.model.Vaccine;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Produces;
