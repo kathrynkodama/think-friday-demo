@@ -11,7 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class InventoryReadinessCheck implements HealthCheck {
 
     private static final String readinessCheck = InventoryResource.class.getSimpleName() + " Readiness Check";
-    
+
     @Override
     public HealthCheckResponse call() {
         return HealthCheckResponse.named(InventoryReadinessCheck.class.getSimpleName()).withData("ready", true).up()

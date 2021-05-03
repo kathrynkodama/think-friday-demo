@@ -15,6 +15,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.microprofile.metrics.annotation.Timed;
+
 import io.openliberty.sample.javax.finish.model.Alert;
 import io.openliberty.sample.javax.finish.model.Vaccine;
 
@@ -28,17 +30,18 @@ public class InventoryResource {
 	@Inject @Named("firstDose")
 	private Alert firstDose;
 	
-	
 	@Inject @Named("secondDose")
 	private Alert secondDose;
 	
 	@GET
 	@Path("/inventory")
+	@Timed(name = "inventoryProcessingTime", tags = {
+			"method=get" }, absolute = true, description = "Time needed to process the inventory")
 	@javax.ws.rs.Produces(MediaType.APPLICATION_JSON)
 	public List<Vaccine> listInventory() {
 		return vaccineInventory.listAll();
 	}
-	
+
 	@POST
 	@Path("/{vaccineType}/{numDoses}/{costPerThousandUnits}")
 	public void addVaccine(@PathParam("vaccineType") String vaccineType, @PathParam("numDoses") int numDoses,
@@ -73,4 +76,6 @@ public class InventoryResource {
 	public String getSecondDoseMsg() {
 		return secondDose.sendAlert();
 	}
+
+
 }
