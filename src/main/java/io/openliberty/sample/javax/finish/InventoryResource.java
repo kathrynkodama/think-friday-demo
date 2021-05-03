@@ -1,19 +1,22 @@
-package io.openliberty.sample.jakarta.finish;
+package io.openliberty.sample.javax.finish;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.enterprise.inject.Produces;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.core.MediaType;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+
+import io.openliberty.sample.javax.finish.model.Alert;
+import io.openliberty.sample.javax.finish.model.Vaccine;
 
 @Path("")
 @ApplicationScoped
@@ -31,7 +34,7 @@ public class InventoryResource {
 	
 	@GET
 	@Path("/inventory")
-	@jakarta.ws.rs.Produces(MediaType.APPLICATION_JSON)
+	@javax.ws.rs.Produces(MediaType.APPLICATION_JSON)
 	public List<Vaccine> listInventory() {
 		return vaccineInventory.listAll();
 	}

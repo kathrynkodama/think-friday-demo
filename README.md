@@ -1,4 +1,4 @@
-# Vaccination Demo App - Open Liberty and Jakarta EE 9
+# Vaccination Demo App - Open Liberty and MicroProfile 4.0
 
-Demo project using Jakarta EE 9 specifications with Open Liberty.
+Demo project using MicroProfile 4.0 and Jakarta EE 8 specifications with Open Liberty.
 
