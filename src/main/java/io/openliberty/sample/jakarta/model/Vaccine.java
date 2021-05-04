@@ -5,7 +5,7 @@ public class Vaccine {
 	private int costPerThousandUnits;
 	private VaccineType type;
 	
-	private enum VaccineType {Pfizer, Moderna};
+	private enum VaccineType {Pfizer, Moderna, AstroZeneca};
 
 	public Vaccine(String type, int numDoses, int costPerThousandUnits) {
 		this.type = VaccineType.valueOf(type);
