@@ -1,17 +1,9 @@
-package io.openliberty.sample.jakarta.finish;
+package io.openliberty.sample.jakarta;
 
 import jakarta.enterprise.context.*;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-import io.openliberty.sample.jakarta.finish.model.Vaccine;
-import jakarta.enterprise.inject.Produces;
+import java.util.*;
+import io.openliberty.sample.jakarta.model.Vaccine;
 import jakarta.inject.Named;
-import jakarta.enterprise.context.*;
 
 @ApplicationScoped
 @Named("vaccine")
