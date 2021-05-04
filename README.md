@@ -80,16 +80,43 @@ public class InventoryLivenessCheck implements HealthCheck {
 ```
 </details>
 
-**MicroProfile Metrics 3.0: Metrics on processing time**
-8. Navigate to the `server.xml`. Turn off authentication for `mpMetrics`:
-```xml
-<mpMetrics authentication="false"/>
-```
+**MicroProfile OpenAPI 2.0: Documenting RESTful APIs**
+8. View the OpenAPI endpoint at http://localhost:9080/openapi
 
-9. Access the http://localhost:9080/metrics endpoint to see the metrics already being collected by default. 
-
-10. Navigate to the `InventoryResource` class. Add a `org.eclipse.microprofile.metrics.annotation.Timed` annotation to the `listInventory` method to collect metrics on the time needed to list the inventory.  Notice these metrics have been added at the http://localhost:9080/metrics/application endpoint. 
+9. Navigate to the `InventoryResource` class. Add OpenAPI parameters to the `listInventory` method. See the corresponding endpoint updated: http://localhost:9080/openapi.
 ```java
-@Timed(name = "inventoryProcessingTime", tags = {
-    "method=get" }, absolute = true, description = "Time needed to process the inventory")
+	@GET
+	@Path("/inventory")
+	@Produces(MediaType.APPLICATION_JSON)
+	@APIResponse(
+        responseCode = "200",
+        description = "Vaccine details stored in the inventory.",
+        content = @Content(
+            mediaType = "application/json",
+            schema = @Schema(
+                type = SchemaType.OBJECT,
+                implementation = VaccineInventoryBean.class)))
+	@Operation(
+		summary = "List inventory contents",
+		description = "Returns the currently stored vaccines stored in the inventory"
+	)
+	public List<Vaccine> listInventory() {
+		return vaccineInventory.listAll();
+	}
 ```
+10. Add OpenAPI parameters to the `addVaccine` method.
+```java
+	@POST
+	@Path("/{vaccineType}/{numDoses}/{costPerThousandUnits}")
+	@Operation(summary = "Add vaccine to inventory", description = "Adds a new vaccine type to the inventory")
+	public void addVaccine(
+			@Parameter(description = "The type of vaccine to be added", required = true, example = "Pfizer", schema = @Schema(type = SchemaType.STRING)) @PathParam("vaccineType") String vaccineType,
+			@Parameter(description = "Number of doses", required = true, example = "5", schema = @Schema(type = SchemaType.INTEGER)) @PathParam("numDoses") int numDoses,
+			@Parameter(description = "The cost of the vaccine per thousand units", required = true, example = "5000", schema = @Schema(type = SchemaType.INTEGER)) @PathParam("costPerThousandUnits") int costPerThousandUnits) {
+		System.out.println("ADDING VACCINE - VaccineType: " + vaccineType + "; numDoses: " + numDoses
+				+ "; costPerThousandUnits: " + costPerThousandUnits);
+
+		vaccineInventory.addProduct(vaccineType, numDoses, costPerThousandUnits);
+	}
+```
+
