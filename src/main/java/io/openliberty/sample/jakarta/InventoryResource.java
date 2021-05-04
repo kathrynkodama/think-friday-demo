@@ -1,20 +1,13 @@
-package io.openliberty.sample.jakarta.finish;
+package io.openliberty.sample.jakarta;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import io.openliberty.sample.jakarta.finish.model.Alert;
-import io.openliberty.sample.jakarta.finish.model.Vaccine;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
+import io.openliberty.sample.jakarta.model.Alert;
+import io.openliberty.sample.jakarta.model.Vaccine;
+import jakarta.enterprise.context.*;
 import jakarta.enterprise.inject.Produces;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
+import jakarta.inject.*;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("")

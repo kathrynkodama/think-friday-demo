@@ -1,4 +1,4 @@
-package io.openliberty.sample.jakarta.finish.model;
+package io.openliberty.sample.jakarta.model;
 
 public class Alert {
 	

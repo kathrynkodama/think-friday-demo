@@ -1,24 +1,18 @@
-package io.openliberty.sample.jakarta.finish;
+package io.openliberty.sample.jakarta;
 
 import jakarta.enterprise.context.*;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-import io.openliberty.sample.jakarta.finish.model.Vaccine;
-import jakarta.enterprise.inject.Produces;
+import java.util.*;
+import io.openliberty.sample.jakarta.model.Vaccine;
 import jakarta.inject.Named;
-import jakarta.enterprise.context.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @ApplicationScoped
 @Named("vaccine")
 public class VaccineInventoryBean {
 	private List<Vaccine> inventory = Collections.synchronizedList(new ArrayList<>());
 
-	public void addProduct(String name, int numDoses, int costPerThousandUnits) {
+	public void addProduct(@NotNull String name, int numDoses, @Positive int costPerThousandUnits) {
 		Optional<Vaccine> target = inventory.stream().filter(v -> v.getVaccineType().equals(name)).findAny();
 
 		if (target.isPresent()) {
