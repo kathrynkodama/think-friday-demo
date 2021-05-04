@@ -80,7 +80,7 @@ public class InventoryLivenessCheck implements HealthCheck {
 ```
 </details>
 
-**MicroProfile Metrics 3.0: Readiness and Liveness Check**
+**MicroProfile Metrics 3.0: Metrics on processing time**
 8. Navigate to the `server.xml`. Turn off authentication for `mpMetrics`:
 ```xml
 <mpMetrics authentication="false"/>
