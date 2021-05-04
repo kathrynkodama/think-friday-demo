@@ -1,4 +1,4 @@
-package io.openliberty.sample.javax.finish;
+package io.openliberty.sample.javax;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

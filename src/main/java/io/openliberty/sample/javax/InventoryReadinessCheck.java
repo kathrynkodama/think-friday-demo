@@ -1,4 +1,4 @@
-package io.openliberty.sample.javax.finish;
+package io.openliberty.sample.javax;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
@@ -9,8 +9,6 @@ import javax.enterprise.context.ApplicationScoped;
 @Readiness
 @ApplicationScoped
 public class InventoryReadinessCheck implements HealthCheck {
-
-    private static final String readinessCheck = InventoryResource.class.getSimpleName() + " Readiness Check";
 
     @Override
     public HealthCheckResponse call() {

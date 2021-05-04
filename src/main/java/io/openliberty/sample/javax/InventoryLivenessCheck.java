@@ -1,4 +1,4 @@
-package io.openliberty.sample.javax.finish;
+package io.openliberty.sample.javax;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;

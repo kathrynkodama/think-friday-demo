@@ -1,24 +1,17 @@
-package io.openliberty.sample.javax.finish;
+package io.openliberty.sample.javax;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
+import java.util.*;
+import javax.enterprise.context.*;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.inject.*;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.metrics.annotation.Timed;
 
-import io.openliberty.sample.javax.finish.model.Alert;
-import io.openliberty.sample.javax.finish.model.Vaccine;
+import io.openliberty.sample.javax.model.Alert;
+import io.openliberty.sample.javax.model.Vaccine;
 
 @Path("")
 @ApplicationScoped

@@ -1,4 +1,4 @@
-package io.openliberty.sample.javax.finish.model;
+package io.openliberty.sample.javax.model;
 
 public class Vaccine {
 	private int numDoses;
